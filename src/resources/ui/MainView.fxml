@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.MainController"
+            prefWidth="800" prefHeight="600"
+            style="-fx-background-color: linear-gradient(to bottom, #e8f0ff, #fdfdfd);">
+
+    <center>
+        <HBox spacing="0" HBox.hgrow="ALWAYS">
+
+            <!-- Левая панель с кнопками -->
+            <VBox spacing="15" alignment="TOP_CENTER" prefWidth="220" maxWidth="250"
+                  style="-fx-background-color: #e0eaff; -fx-border-width: 0 2 0 0; -fx-border-color: #a0b4e3;">
+                <padding>
+                    <Insets top="20" left="15" right="15" bottom="20"/>
+                </padding>
+                <Button text="Начать игру" fx:id="startGameButton" maxWidth="Infinity"
+                        style="-fx-font-size: 14; -fx-background-radius: 10; -fx-background-color: #4a90e2; -fx-text-fill: white;"/>
+                <Button text="Проверить результат" onAction="#onCheckGameEnd" maxWidth="Infinity" wrapText="true" maxHeight="50"
+                        style="-fx-font-size: 14; -fx-background-radius: 10; -fx-background-color: #50e3c2; -fx-text-fill: white;"/>
+                <Button text="Справка" fx:id="helpButton" maxWidth="Infinity"
+                        style="-fx-font-size: 14; -fx-background-radius: 10; -fx-background-color: #f5a623; -fx-text-fill: white;"/>
+                <Button text="О разработчике" fx:id="aboutButton" maxWidth="Infinity"
+                        style="-fx-font-size: 14; -fx-background-radius: 10; -fx-background-color: #bd10e0; -fx-text-fill: white;"/>
+            </VBox>
+
+            <!-- Правая игровая зона -->
+            <VBox spacing="20" alignment="TOP_CENTER" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS"
+                  style="-fx-padding: 20;">
+                <!-- Закрепленное (исходное) слово -->
+                <Label fx:id="mainWordLabel"
+                       style="-fx-font-size: 24; -fx-font-weight: bold; -fx-background-color: #fff3c4;
+                              -fx-border-color: #e0a800; -fx-border-width: 2; -fx-padding: 10 20 10 20;
+                              -fx-border-radius: 10; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 4, 0, 0, 2);"
+                       maxWidth="300"/>
+
+                <!-- Кликабельные слова -->
+                <FlowPane fx:id="clickableWordsPane" hgap="10" vgap="10" prefWrapLength="600"
+                          VBox.vgrow="ALWAYS"
+                          style="-fx-background-color: #ffffff; -fx-border-color: #cccccc; -fx-border-radius: 8;
+                                 -fx-padding: 10;"/>
+
+                <!-- Зона для перетаскивания -->
+                <Label text="Перетащите сюда слова:"
+                       style="-fx-font-size: 16; -fx-text-fill: #555555;"/>
+
+                <FlowPane fx:id="dropTargetPane"
+                          style="-fx-border-color: #4a90e2; -fx-border-width: 2; -fx-background-color: #f0f8ff;
+                                 -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 15;"
+                          prefWrapLength="600" hgap="10" vgap="10" minHeight="120" VBox.vgrow="ALWAYS"/>
+            </VBox>
+        </HBox>
+    </center>
+
+</BorderPane>
